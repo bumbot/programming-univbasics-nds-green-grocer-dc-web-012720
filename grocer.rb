@@ -101,7 +101,7 @@ def checkout(cart, coupons)
   
   while i < v_easy_cart.length do
     if (v_easy_cart[i] == v_easy_cart[-1])
-      total += v_easy_cart[i][:price] * v_easy_cart[i][:count]
+      total += v_easy_cart[i][:price].round(2) * v_easy_cart[i][:count]
       if total > 100.00
         return total *= 0.9.round(2)
       end
