@@ -56,7 +56,7 @@ def apply_coupons(cart, coupons)
         
         if product[:count] >= coupon[:num] #if item count matches coupon item min., do the rest
           product[:count] -= coupon[:num]
-          disc_item[:price] = coupon[:cost]/  coupon[:num].round(2)
+          disc_item[:price] = coupon[:cost] / coupon[:num].round(2)
         end
       end
       j += 1
