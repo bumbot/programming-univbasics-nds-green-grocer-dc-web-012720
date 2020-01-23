@@ -51,12 +51,12 @@ def apply_coupons(cart, coupons)
       coupon = coupons[j]
       
       if coupon[:item] == product[:item]  #if coupon name matches product name, create a slot
-        cart << {:item => "#{product[:item]} W/COUPON", :price => coupon[:cost], :clearance => product[:clearance], :count => coupon[:num]}
+        cart << {:item => "#{product[:item]} W/COUPON", :price => product[:price], :clearance => product[:clearance], :count => coupon[:num]}
         disc_item = cart[-1]
         
         if product[:count] >= coupon[:num] #if item count matches coupon item min., do the rest
           product[:count] -= coupon[:num]
-          disc_item[:price] /=  coupon[:num].round(2)
+          disc_item[:price] = coupon[:cost]/  coupon[:num].round(2)
         end
       end
       j += 1
